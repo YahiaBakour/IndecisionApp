@@ -8,23 +8,14 @@ class App extends Component {
     super();
     this.state = {
       monsters: [],
-      monstersToShow: [],
       searchField: "",
     };
-  }
-
-  onButtonClick() {
-    this.setState({
-      string: this.state.string + "1",
-    });
   }
 
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((users) =>
-        this.setState({ monsters: users, monstersToShow: users })
-      );
+      .then((users) => this.setState({ monsters: users }));
   }
 
   onSearchChange = (e) => {
